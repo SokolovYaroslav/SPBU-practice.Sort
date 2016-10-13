@@ -19,10 +19,6 @@ int main()
 	fscanf(inputdata, "%d\n", &n);
 	int *a;
 	a = (int*)malloc(sizeof(int) * n);
-	for(i = 0; i != n; ++i)
-	{
-		a[i] = 0;
-	}
 	n = 0;
 	int c;
 	while((c = fgetc(inputdata)) != EOF)
@@ -35,10 +31,6 @@ int main()
 		{
 			n++;
 		}
-	}
-	for(i = 0; i != n; i++)
-	{
-		printf("%d ", a[i]);
 	}
 	puts("\n");
 	rewind(inputdata);

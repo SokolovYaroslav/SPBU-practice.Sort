@@ -22,7 +22,7 @@ void quicksort(arr *array, int last)
 	{
 		quicksort(array, r);
 	}
-	if(l > last)
+	if(l < last)
 	{
 		quicksort(array + l, last - l);
 	}
