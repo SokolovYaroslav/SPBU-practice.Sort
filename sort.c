@@ -8,6 +8,7 @@ typedef char* arr;
 #include "swap.c"
 #include "bubblesort.c"
 #include "insertsort.c"
+#include "quicksort.c"
 
 int main()
 {
@@ -35,6 +36,11 @@ int main()
 			n++;
 		}
 	}
+	for(i = 0; i != n; i++)
+	{
+		printf("%d ", a[i]);
+	}
+	puts("\n");
 	rewind(inputdata);
 	int useless;
 	fscanf(inputdata, "%d\n", &useless);
@@ -45,7 +51,7 @@ int main()
 		array[i] = (arr)malloc(a[i] + 2);
 		fgets(array[i], a[i] + 2, inputdata);
 	}
-	bubblesort(array, n);
+	quicksort(array, n - 1);
 	FILE * outputdata;
 	outputdata = fopen("outputdata.txt", "w");
 	for(i = 0; i != n; ++i)
