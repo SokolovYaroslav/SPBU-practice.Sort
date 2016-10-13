@@ -38,18 +38,31 @@ int main()
 	fscanf(inputdata, "%d\n", &useless);
 	arr *array;
 	array = (arr*)malloc(sizeof(arr) * n);
+	int k;
 	for(i = 0; i != n; ++i)
 	{
-		array[i] = (arr)malloc(a[i] + 2);
-		fgets(array[i], a[i] + 2, inputdata);
+		k = 0;
+		array[i] = (arr)malloc(a[i] + 1);
+		while(((c = fgetc(inputdata)) != '\n') && (c != EOF))
+		{
+		array[i][k] = c;
+		k++;
+		}
+		array[i][k] = '\0';
 	}
+	free(a);
+	fclose(inputdata);
 	quicksort(array, n - 1);
 	FILE * outputdata;
 	outputdata = fopen("outputdata.txt", "w");
 	for(i = 0; i != n; ++i)
 	{
 		fputs(array[i], outputdata);
+		fputc('\n', outputdata);
+		free(array[i]);
 	}
+	fclose(outputdata);
+	free(array);
 
 	return 1;
 }
