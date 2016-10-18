@@ -3,6 +3,7 @@ void insertsort(arr *array, int n)
 	int i;
 	arr x;
 	int j;
+	
 	for(i = 1; i < n; i++)
 	{
 		x = array[i];

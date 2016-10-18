@@ -1,7 +1,7 @@
 int compareStrings(arr a, arr b)
 {
-	int i;
-	i = 0;
+	int i = 0;
+
 	while((a[i] != '\0') && (b[i] != '\0'))
 	{
 		if(a[i] > b[i])
@@ -14,6 +14,7 @@ int compareStrings(arr a, arr b)
 		}
 		i++;
 	}
+
 	if(a[i] == '\0')
 	{
 		if(b[i] == '\0')
@@ -25,5 +26,7 @@ int compareStrings(arr a, arr b)
 			return -1;
 		}
 	}
+
 	return 1;
+	
 }

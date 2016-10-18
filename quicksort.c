@@ -3,6 +3,7 @@ void quicksort(arr *array, int last)
 	int l = 0;
 	int r = last;
 	arr opornel = array[r / 2];
+
 	while(l <= r)
 	{
 		while(compareStrings(array[l], opornel) == -1)
@@ -18,6 +19,7 @@ void quicksort(arr *array, int last)
 			swap(&array[l++], &array[r--]);
 		}
 	}
+	
 	if(r > 0)
 	{
 		quicksort(array, r);

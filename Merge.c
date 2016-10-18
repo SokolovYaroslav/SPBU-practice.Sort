@@ -15,6 +15,7 @@ void merge(arr *L, int nL, arr *R, int nR, arr *array)
 		array[k++] = R[r++];
 		}
 	}
+	
 	while(l < nL)
 	{
 		array[k++] = L[l++];

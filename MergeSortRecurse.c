@@ -16,7 +16,7 @@ void MergeSortRecurse(arr *array, arr *arrayB, int n, int *pos)
 	MergeSortRecurse(array, arrayB, mid, &pos0);
 	MergeSortRecurse(array + mid, arrayB + mid, n - mid, &pos1);
 
-	if(pos0 != pos1)
+	if(pos0 != pos1)							//Prepare for merge. Both of answers must locate in same array
 	{
 		if(pos0 == 0)
 		{
@@ -34,7 +34,7 @@ void MergeSortRecurse(arr *array, arr *arrayB, int n, int *pos)
 		}
 	}
 
-	if(pos0 == 0)
+	if(pos0 == 0)								//Merge
 	{
 		merge(array, mid, array + mid, n - mid, arrayB);
 		*pos = 1;
