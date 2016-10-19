@@ -10,8 +10,8 @@ void MergeSortRecurse(arr *array, arr *arrayB, int n, int *pos)
 	}
 
 	int mid = n / 2;
-	int pos0;
-	int pos1;
+	int pos0 = 0;
+	int pos1 = 0;
 
 	MergeSortRecurse(array, arrayB, mid, &pos0);
 	MergeSortRecurse(array + mid, arrayB + mid, n - mid, &pos1);
@@ -34,7 +34,7 @@ void MergeSortRecurse(arr *array, arr *arrayB, int n, int *pos)
 		}
 	}
 
-	if(pos0 == 0)								//Merge
+	if(pos0 == 0)
 	{
 		merge(array, mid, array + mid, n - mid, arrayB);
 		*pos = 1;

@@ -17,7 +17,7 @@ void MergeSort(arr *array, int n)
 	{
 		for(i = 0; i < n; i++)
 		{
-		array[i] = arrayB[i];
+			array[i] = arrayB[i];
 		}
 	}
 	free(arrayB);

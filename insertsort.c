@@ -1,9 +1,9 @@
 void insertsort(arr *array, int n)
 {
-	int i;
+	int i = 0;
 	arr x;
-	int j;
-	
+	int j = 0;
+
 	for(i = 1; i < n; i++)
 	{
 		x = array[i];
