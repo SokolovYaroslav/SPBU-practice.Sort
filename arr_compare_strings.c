@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "compareStrings.h"
+#include "arr_compare_strings.h"
 
-int compareStrings(arr a, arr b)
+int arr_compare_strings(arr a, arr b)
 {
 	int i = 0;
 

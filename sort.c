@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bubblesort.h"
-#include "insertsort.h"
-#include "quicksort.h"
-#include "MergeSort.h"
+#include "arr_get_array.h"
+#include "arr_bubble_sort.h"
+#include "arr_insert_sort.h"
+#include "arr_quick_sort.h"
+#include "arr_merge_sort.h"
 
 typedef char* arr;
 
@@ -14,90 +15,36 @@ int main(int argc, char **argv)
 		printf("Invalid arguments\n");
 		return 0;
 	}
-	int n = atoi(argv[1]);
+	int number_of_strings = atoi(argv[1]);
 	int i = 0;
 
-	FILE * inputdata;
-	inputdata = fopen(argv[2], "r");
-	if(inputdata == NULL)
+	arr *main_array = arr_get_array(number_of_strings, argv[2]);
+	if(!main_array)
 	{
-		printf("Can't open input file\n");
 		return 0;
 	}
 
-	if(n <= 0)
+	/*arr_bubble_sort(main_array, number_of_strings);*/
+	/*arr_insert_sort(main_array, number_of_strings);*/
+	if(number_of_strings < 16000)
 	{
-		printf("Invalid input number of strings\n");
-		fclose(inputdata);
-		return 0;
-	}
-	//Massive with lenghs of strings
-	int *a;
-	a = (int*)malloc(sizeof(int) * (n + 2));
-	//Count lenghs of strings
-	int c = 0;	
-	a[0] = 0;				
-	while((c = fgetc(inputdata)) != EOF)
-	{
-		if(i <= n)
+		if(!arr_merge_sort(main_array, number_of_strings))
 		{
-			if(c != '\n')
-			{
-				a[i]++;
-			}
-			else
-			{
-				i++;
-				a[i] = 0;
-			}
+			return 0;
 		}
 	}
-	
-	rewind(inputdata);
-
-	arr *array;									
-	array = (arr*)malloc(sizeof(arr) * n);
-	int k = 0;
-	for(i = 0; i != n; ++i)
+	else
 	{
-		k = 0;
-		array[i] = (arr)malloc(a[i] + 1);
-		while(((c = fgetc(inputdata)) != '\n') && (c != EOF))
-		{
-			array[i][k] = c;
-			k++;
-		}
-		array[i][k] = '\0';
-	}
-	free(a);
-	fclose(inputdata);
-
-	int choice = 0;
-	printf("Choose algorithm of sorting\n"
-		    "Bubblesort - 1\n"
-		    "Insertsort - 2\n"
-		    "Quicksort - 3\n"
-		    "MergeSort - 4\n"
-		    "Your choice is = ");
-	scanf("%d", &choice);
-	switch(choice)
-	{
-		case 1: bubblesort(array, n); break;
-		case 2: insertsort(array, n); break;
-		case 3: quicksort(array, n - 1); break;
-		case 4: MergeSort(array, n); break;
-		default:
-			printf("wrong answer, then algorithm will be Quicksort\n"); 
-			quicksort(array, n - 1); break;
+		arr_quick_sort(main_array, number_of_strings - 1);
 	}
 
-	for(i = 0; i < n; i++)
+	for(i = 0; i < number_of_strings; i++)
 	{
-		printf("%s\n", array[i]);
-		free(array[i]);
+		printf("%s\n", main_array[i]);
+		free(main_array[i]);
 	}
 	
-	free(array);
+	free(main_array);
 
 	return 1;
 }

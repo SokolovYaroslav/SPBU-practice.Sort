@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Merge.h"
-#include "compareStrings.h"
+#include "arr_merge.h"
+#include "arr_compare_strings.h"
 
-void merge(arr *L, int nL, arr *R, int nR, arr *array)
+void arr_merge(arr *L, int nL, arr *R, int nR, arr *array)
 {
 	int l = 0;
 	int r = 0;
@@ -11,7 +11,7 @@ void merge(arr *L, int nL, arr *R, int nR, arr *array)
 
 	while(l < nL && r < nR)
 	{
-		if(compareStrings(L[l], R[r]) == -1)
+		if(arr_compare_strings(L[l], R[r]) == -1)
 		{
 			array[k++] = L[l++];
 		}

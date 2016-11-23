@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "swap.h"
+#include "arr_swap.h"
 
-void swap(arr *a,arr *b)
+void arr_swap(arr *a,arr *b)
 {
 	arr tmp = *a;
 	*a = *b;

@@ -2,4 +2,4 @@
 
 typedef char* arr;
 
-int compareStrings(arr a, arr b);
+void arr_swap(arr *a,arr *b);
