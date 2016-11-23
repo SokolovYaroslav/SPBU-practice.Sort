@@ -1,71 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "bubblesort.h"
+#include "insertsort.h"
+#include "quicksort.h"
+#include "MergeSort.h"
 
 typedef char* arr;
 
-#include "compareStrings.c"
-#include "swap.c"
-#include "bubblesort.c"
-#include "insertsort.c"
-#include "quicksort.c"
-#include "MergeSort.c"
-
-int main()
+int main(int argc, char **argv)
 {
-	int n0 = 0; 									//Number of strings
+	if(argc != 3)
+	{
+		printf("Invalid arguments\n");
+		return 0;
+	}
+	int n = atoi(argv[1]);
 	int i = 0;
 
 	FILE * inputdata;
-	inputdata = fopen("inputdata.txt", "r");
-	fscanf(inputdata, "%d\n", &n0);
-	
-	int *a;										//Massive with lenths of strings
-	a = (int*)malloc(sizeof(int) * n0);
-	
-	int n = 0;
-	n0--;									//Now we'll get more accurate value
-	int c = 0;									//Count number and lenths of strings
-	a[n] = 0;
+	inputdata = fopen(argv[2], "r");
+	if(inputdata == NULL)
+	{
+		printf("Can't open input file\n");
+		return 0;
+	}
+
+	if(n <= 0)
+	{
+		printf("Invalid input number of strings\n");
+		fclose(inputdata);
+		return 0;
+	}
+	//Massive with lenghs of strings
+	int *a;
+	a = (int*)malloc(sizeof(int) * (n + 2));
+	//Count lenghs of strings
+	int c = 0;	
+	a[0] = 0;				
 	while((c = fgetc(inputdata)) != EOF)
 	{
-		if(n < n0)
+		if(i <= n)
 		{
 			if(c != '\n')
 			{
-				a[n]++;
+				a[i]++;
 			}
 			else
 			{
-				n++;
-				a[n] = 0;
+				i++;
+				a[i] = 0;
 			}
-		}
-		else if(n == n0)
-		{
-			if(c != '\n')
-			{
-				a[n]++;
-			}
-			else
-			{
-				n++;
-			}
-		}
-		else
-		{
-			printf("Input number of strings less than real number of strings\n");
-			free(a);
-			fclose(inputdata);
-			return 0;
 		}
 	}
 	
-	rewind(inputdata);							//Reopen file and move cursor
-	int useless;
-	fscanf(inputdata, "%d\n", &useless);
+	rewind(inputdata);
 
-	arr *array;									//Select memory and get strings
+	arr *array;									
 	array = (arr*)malloc(sizeof(arr) * n);
 	int k = 0;
 	for(i = 0; i != n; ++i)
@@ -82,7 +72,7 @@ int main()
 	free(a);
 	fclose(inputdata);
 
-	int choice = 0;								//Sort array
+	int choice = 0;
 	printf("Choose algorithm of sorting\n"
 		    "Bubblesort - 1\n"
 		    "Insertsort - 2\n"
@@ -101,16 +91,12 @@ int main()
 			quicksort(array, n - 1); break;
 	}
 
-	FILE * outputdata;							//Put sorted array in file
-	outputdata = fopen("outputdata.txt", "w");
-	for(i = 0; i != n; ++i)
+	for(i = 0; i < n; i++)
 	{
-		fputs(array[i], outputdata);
-		fputc('\n', outputdata);
+		printf("%s\n", array[i]);
 		free(array[i]);
 	}
-	fclose(outputdata);
-
+	
 	free(array);
 
 	return 1;

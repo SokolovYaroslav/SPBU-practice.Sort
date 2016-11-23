@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "compareStrings.h"
+
 int compareStrings(arr a, arr b)
 {
 	int i = 0;
@@ -26,7 +30,4 @@ int compareStrings(arr a, arr b)
 			return -1;
 		}
 	}
-
-	return 1;
-
 }

@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "insertsort.h"
+#include "compareStrings.h"
+
 void insertsort(arr *array, int n)
 {
 	int i = 0;

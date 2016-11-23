@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "quicksort.h"
+#include "swap.h"
+#include "compareStrings.h"
+
 void quicksort(arr *array, int last)
 {
 	int l = 0;

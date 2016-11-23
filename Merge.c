@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "Merge.h"
+#include "compareStrings.h"
+
 void merge(arr *L, int nL, arr *R, int nR, arr *array)
 {
 	int l = 0;

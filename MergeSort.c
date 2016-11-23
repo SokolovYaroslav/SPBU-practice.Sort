@@ -1,4 +1,7 @@
-#include "MergeSortRecurse.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include "MergeSort.h"
+#include "MergeSortRecurse.h"
 
 void MergeSort(arr *array, int n)
 {
