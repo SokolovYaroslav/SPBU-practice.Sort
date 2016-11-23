@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "bubblesort.h"
+#include "compareStrings.h"
+#include "swap.h"
+
 void bubblesort(arr *array, int n)
 {
 	int i = 0;
