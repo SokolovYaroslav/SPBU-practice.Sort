@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "arr_merge_sort_recurse.h"
 #include "arr_merge.h"
+#include "arr_compare_strings.h"
+#include "arr_swap.h"
 
 void arr_merge_sort_recurse(arr *array, arr *additional_array, int number_of_strings, int *position)
 {
@@ -10,6 +12,13 @@ void arr_merge_sort_recurse(arr *array, arr *additional_array, int number_of_str
 	if(number_of_strings < 2)
 	{
 		return;
+	}
+	else if(number_of_strings == 2)
+	{
+		if(arr_compare_strings(array[0], array[1]) == 1)
+		{
+			arr_swap(&array[0], &array[1]);
+		}
 	}
 
 	int mid = number_of_strings / 2;

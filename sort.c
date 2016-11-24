@@ -26,17 +26,11 @@ int main(int argc, char **argv)
 
 	/*arr_bubble_sort(main_array, number_of_strings);*/
 	/*arr_insert_sort(main_array, number_of_strings);*/
-	if(number_of_strings < 16000)
+	if(!arr_merge_sort(main_array, number_of_strings))
 	{
-		if(!arr_merge_sort(main_array, number_of_strings))
-		{
-			return 0;
-		}
+		return 0;
 	}
-	else
-	{
-		arr_quick_sort(main_array, number_of_strings - 1);
-	}
+	/*arr_quick_sort(main_array, number_of_strings - 1);*/
 
 	for(i = 0; i < number_of_strings; i++)
 	{

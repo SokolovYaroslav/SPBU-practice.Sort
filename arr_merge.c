@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "arr_merge.h"
 #include "arr_compare_strings.h"
 

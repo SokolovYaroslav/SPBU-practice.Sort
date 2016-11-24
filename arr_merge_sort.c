@@ -2,11 +2,21 @@
 #include <stdlib.h>
 #include "arr_merge_sort.h"
 #include "arr_merge_sort_recurse.h"
+#include "arr_compare_strings.h"
+#include "arr_swap.h"
 
 int arr_merge_sort(arr *array, int number_of_strings)
 {
 	if(number_of_strings < 2)
 	{
+		return 1;
+	}
+	else if(number_of_strings == 2)
+	{
+		if(arr_compare_strings(array[0], array[1]) == 1)
+		{
+			arr_swap(&array[0], &array[1]);
+		}
 		return 1;
 	}
 
@@ -15,10 +25,10 @@ int arr_merge_sort(arr *array, int number_of_strings)
 	arr *additional_array = (arr*)malloc(sizeof(arr) * number_of_strings);
 	if(!additional_array)
 	{
-		printf("Can't malloc additional array in arr_merge_sort\n");
+		printf("Can't malloc additional_array\n");
 		return 0;
 	}
-
+	
 	arr_merge_sort_recurse(array, additional_array, number_of_strings, &position);
 
 	if(position == 1)								//We want move answer in array
@@ -29,4 +39,5 @@ int arr_merge_sort(arr *array, int number_of_strings)
 		}
 	}
 	free(additional_array);
+	return 1;
 }
