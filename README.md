@@ -31,3 +31,11 @@ Below are the results of profiling:
 |0m5.695s|0m5.328s|0m0.220s|
 
 Based on these results, you can note that to improve the speed of the program, you need to improve the swap and compare methods.
+
+
+VALLGRIND:
+	HEAP SUMMARY:
+		in use at exit: 0 bytes in 0 blocks
+    	total heap usage: 10,004 allocs, 10,004 frees, 502,951,468 bytes allocated
+     
+    	All heap blocks were freed -- no leaks are possible
