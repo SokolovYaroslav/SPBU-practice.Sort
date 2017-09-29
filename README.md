@@ -1,8 +1,8 @@
 # String sorter
 
-Эта программа реализует различные алгоритмы сортировки на примере сортировки строк.
+This program implements various sorting algorithms for the case of string sorting.
 
-Ниже представлены результаты профилирования:
+Below are the results of profiling:
 
 ## Merge sort
 |% time|cumulative seconds|self seconds|calls|self ms/call|total ms/call|name|
@@ -30,4 +30,4 @@
 |---|---|---|
 |0m5.695s|0m5.328s|0m0.220s|
 
-Исходя из этих результатов можно залючить, что для улучшения быстродействия программы необходимо улучшить метод swap и compare.
+Based on these results, you can note that to improve the speed of the program, you need to improve the swap and compare methods.
