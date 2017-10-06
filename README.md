@@ -30,7 +30,7 @@ Below are the results of profiling:
 |---|---|---|
 |0m5.695s|0m5.328s|0m0.220s|
 
-Based on these results, you can note that to improve the speed of the program, you need to improve the swap and compare methods.
+Based on these results, you can note that to improve the speed of the program, you need to improve the compare method.
 
 
 VALLGRIND:
